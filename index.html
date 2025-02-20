@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galery</title>
+    <link rel="stylesheet" href="styles/app.css">
+<link rel="shortcut icon" href="assets/fav.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/fonts/font.css">
+</head>
+<body class="page">
+  
+
+ 
+    <div class="card__container">
+      <input type="text" class="card__url" required>
+      <input type="text" class="card__title" maxlength="100">
+    
+      <button class="add__button" type="button"></button>
+    </div>
+    <div class="card__block">
+    
+    </div>
+    <template id="cardTemplate">
+    
+      <div class="card__block__items">
+        <img alt="" class="img__item">
+        <p class="block__title"></p>
+        <button class="like__button"></button>
+        <button class="del__card"> </button>
+    
+      </div>
+    </template>
+    
+    </div>
+    
+     <button class="links">get links</button>
+      <div class="block__url">
+<p class="block__href">https://clck.ru/3GKAip</p>
+<p class="block__href">https://clck.ru/3GEDz9</p>
+<p class="block__href">https://clck.ru/3GEDzQ</p>
+      </div>
+      <script src="scripts/script.js"></script>
+</body>
+</html>
