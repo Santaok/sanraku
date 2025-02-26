@@ -46,6 +46,23 @@ const funk = cardData.forEach(obj => {
 
 
 })
+function buttons (cardClone) {
+    const likeButton = cardClone.querySelector(".like__button")
+    const delCardButton = cardClone.querySelector(".del__card")
+    const cardBlock = cardClone.querySelector(".card__block__items")
+    
+    delCardButton.textContent = "удалить карточку"
+    
+    likeButton.addEventListener("click", () => {
+        likeButton.classList.toggle("like__button__active")
+        cardBlock.classList.toggle("block__item__active")
+    })
+
+    delCardButton.addEventListener("click", () => {
+        cardBlock.remove()
+    })
+}
+
 function createCard() {
     const newcard = template.cloneNode(true)
 
