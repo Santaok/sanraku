@@ -20,77 +20,59 @@ const cardData = [
         link: "./assets/ddd.jpg",
         title: "card7"
     }
-];
-
-const funk = cardData.forEach(obj => {
+]
+const createCardClone = (obj) => {
     const cardClone = template.cloneNode(true)
     const imgItem = cardClone.querySelector(".img__item")
     const blockTitle = cardClone.querySelector(".block__title")
     const likeButton = cardClone.querySelector(".like__button")
     const delCardButton = cardClone.querySelector(".del__card")
     const cardBlock = cardClone.querySelector(".card__block__items")
+    
     imgItem.src = obj.link
     blockTitle.textContent = obj.title
-
     delCardButton.textContent = "удалить карточку"
-    likeButton.addEventListener("click", () => {
-        likeButton.classList.toggle("like__button__active")
-        cardBlock.classList.toggle("block__item__active")
-    })
-
-    delCardButton.addEventListener("click", () => {
-        cardBlock.remove()
-    })
+    
+    likeButton.addEventListener("click", () => 
+        toggleLikeButton(likeButton, cardBlock))
+    delCardButton.addEventListener("click", () => 
+        removeCard(cardBlock))
 
     cardContainer.appendChild(cardClone)
+}
+const toggleLikeButton = (likeButton, cardBlock) => {
+    likeButton.classList.toggle("like__button__active")
+    cardBlock.classList.toggle("block__item__active")
+}
+const removeCard = (cardBlock) => {
+    cardBlock.remove()
+}
+cardData.forEach(createCardClone)
 
+const createCard = () => {
+    const newCard = template.cloneNode(true)
 
-})
-function buttons (cardClone) {
-    const likeButton = cardClone.querySelector(".like__button")
-    const delCardButton = cardClone.querySelector(".del__card")
-    const cardBlock = cardClone.querySelector(".card__block__items")
-    
+    newCard.querySelector(".img__item").src = inputLink.value
+    newCard.querySelector(".block__title").textContent = inputTitle.value
+
+    const cardBlock = newCard.querySelector(".card__block__items")
+    const delCardButton = newCard.querySelector(".del__card")
+    const likeButton = newCard.querySelector(".like__button")
     delCardButton.textContent = "удалить карточку"
-    
-    likeButton.addEventListener("click", () => {
-        likeButton.classList.toggle("like__button__active")
-        cardBlock.classList.toggle("block__item__active")
-    })
 
-    delCardButton.addEventListener("click", () => {
-        cardBlock.remove()
-    })
+    likeButton.addEventListener("click", () => 
+        toggleLikeButton(likeButton, cardBlock))
+    delCardButton.addEventListener("click", () => 
+        removeCard(cardBlock))
+
+    cardContainer.appendChild(newCard)
 }
 
-function createCard() {
-    const newcard = template.cloneNode(true)
-
-
-    newcard.querySelector(".img__item").src = inputLink.value
-    newcard.querySelector(".block__title").textContent = inputTitle.value
-
-    const cardBlock = newcard.querySelector(".card__block__items")
-    const delCardButton = newcard.querySelector(".del__card")
-    const likeButton = newcard.querySelector(".like__button")
-
-    likeButton.addEventListener("click", () => {
-        likeButton.classList.toggle("like__button__active")
-        cardBlock.classList.toggle("block__item__active")
-    })
-    delCardButton.textContent = "удалить карточку"
-    delCardButton.addEventListener("click", () => {
-        cardBlock.remove();
-    })
-
-    cardContainer.appendChild(newcard)
-}
 cardaddBtn.addEventListener("click", createCard)
 
-
 const getbtn = document.querySelector(".links")
-
 const blockUrl = document.querySelector(".block__url")
-getbtn.addEventListener("click", () => {
+const toggleBlockUrl = () => {
     blockUrl.classList.toggle("block__url__active")
-})
+}
+getbtn.addEventListener("click", toggleBlockUrl)
