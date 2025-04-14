@@ -1,1 +1,1 @@
-# sanraku
+# sanraku запускать через npm start
