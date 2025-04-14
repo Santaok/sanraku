@@ -5,41 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galery</title>
     <link rel="stylesheet" href="styles/app.css">
-<link rel="shortcut icon" href="assets/fav.jpg" type="image/x-icon">
+<link rel="shortcut icon" href=".//dist/images/fav.jpg" type="image/x-icon">
     <link rel="stylesheet" href="styles/fonts/font.css">
 </head>
 <body class="page">
-  
+  <div class="copy"> Успешно скопировано!</div>
 
- 
+ <div class="block__lock">
     <div class="card__container">
       <input type="text" class="card__url" required>
       <input type="text" class="card__title" maxlength="100">
     
       <button class="add__button" type="button"></button>
     </div>
+  </div>
     <div class="card__block">
     
     </div>
+
+    
+<div class="modal">
+<div class="modal_content">
+  <nav class="nav">
+  <li><a href="#" class="close">×</a> </li>
+</nav>
+<form class="form">
+  
+<h2>Редактировать карточку</h2>
+
+<div>
+<label for="title">Link</label>
+ <input id="titleInput" type="text" name="title" >
+</div>
+<div>
+<label for="description">Title</label>
+ <input id="descriptionInput" type="text" name="description" required> </div>
+ <div class="buttons"><button class="reset" type="reset">Reset</button>
+  <button class="submit__btn" type="submit">Save</button></div>
+ 
+
+ </form>
+</div>
+</div>
+
     <template id="cardTemplate">
     
       <div class="card__block__items">
         <img alt="" class="img__item">
         <p class="block__title"></p>
         <button class="like__button"></button>
-        <button class="del__card"> </button>
+        <button class="del__card"></button>
+        <button class="redact"> Редактировать</button>
     
       </div>
     </template>
     
-    </div>
+    
     
      <button class="links">get links</button>
       <div class="block__url">
-<p class="block__href">https://clck.ru/3GKAip</p>
-<p class="block__href">https://clck.ru/3GEDz9</p>
-<p class="block__href">https://clck.ru/3GEDzQ</p>
+        <p>Click Copy A </p>
+<p class="block__href">https://clck.ru/3LRNsY</p>
+<p class="block__href">https://clck.ru/3LRNrq</p>
+<p class="block__href">https://clck.ru/3LRNrH</p>
       </div>
-      <script src="scripts/script.js"></script>
+      <script  type="module" src="scripts/main.js" > </script>
 </body>
 </html>
